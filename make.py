@@ -36,7 +36,7 @@ def replace_str(_dir=None, replace_map=None):
 	for _file in file_list:
 		for key, value in replace_map.items():
 			file = Path(f'{_dir}/{_file.name}')
-			file.write_text(file.read_text().replace(f'<<{key}>>', value))		
+			file.write_text(file.read_text(encoding='utf-8').replace(f'<<{key}>>', value))		
 						
 	for dir_ in dir_list:
 		replace_str(f'{_dir}/{dir_.name}', replace_map)					
